@@ -1,0 +1,61 @@
+<div class="container-fluid">
+    <div class="col-lg-offset-2 col-lg-8">
+        <form class="form-group" name="postForm" ngForm #postForm="ngForm">
+          <div>
+            <label>Title<span class="required">*</span></label>
+            <div>
+              <input type="text" class="form-control" 
+              [(ngModel)]="post.title" #title="ngModel" name="title" required maxlength="10">
+              <div class="alert alert-danger" *ngIf="title.errors && (title.touched || title.dirty)">
+                <div *ngIf="title.errors.required">Error: Please enter the title</div>
+                <div *ngIf="title.errors.maxlength">Error: Please enter maximum 10 characters</div>
+              </div>
+            </div>
+          </div>
+      
+          <div>
+              <label>Description<span class="required">*</span></label>
+              <div>
+                <input type="text" class="form-control" name="description" 
+                [(ngModel)]="post.description" #description="ngModel" required minlength="10" maxlength="50">
+                <div class="alert alert-danger" *ngIf="description.errors && (description.touched || description.dirty)">
+                    <div *ngIf="description.errors.required">Error: Please enter the description</div>
+                    <div *ngIf="description.errors.minlength">Error: Please enter minimum 10 characters</div>
+                    <div *ngIf="description.errors.maxlength">Error: Please enter maximum 50 characters</div>
+                  </div>
+              </div>
+            </div>
+            
+            <div>
+                <label>Active status<span class="required">*</span></label>
+                <div>
+                  <select class="form-control" name="active" [(ngModel)]="post.isActive" #active="ngModel">
+                    <option value="Y">Y</option>
+                    <option value="N">N</option>
+                  </select>
+                </div>
+              </div>
+      
+            <div>
+                <label>Author<span class="required">*</span></label>
+                <div>
+                  <input type="text" class="form-control" name="author" [(ngModel)]="post.author" #author="ngModel" required pattern="[\D]*">
+                  <div class="alert alert-danger" *ngIf="author.errors && (author.touched || author.dirty)">
+                      <div *ngIf="author.errors.required">Error: Please enter the Author</div>
+                      <div *ngIf="author.errors.pattern">Error: Name must not contain numbers</div>
+                    </div>
+                </div>
+              </div>
+              
+            <div>
+                <label>Category<span class="required">*</span></label>
+                  <div>
+                    <input type="text" class="form-control" name="categor" required [(ngModel)]="category" #categor="ngModel">
+                  </div>
+              </div>
+               <br/><br/>
+              <input type="submit" value="Update Post" class="btn btn-primary" [disabled]="postForm.invalid" (click)="updatePost(postForm)">
+              <input type="reset" class="btn btn-primary">
+        </form>
+      </div>
+      </div>

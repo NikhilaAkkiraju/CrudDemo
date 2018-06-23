@@ -1,0 +1,16 @@
+.info{
+    font-style: italic;
+    color:lightgrey;
+}
+.required{
+    color:red;
+}
+.alert{
+    margin-bottom:5px;
+    padding:5px 15px;
+}
+.alert-danger{
+    background-color: white;
+    border:none;
+    color:red;
+}
