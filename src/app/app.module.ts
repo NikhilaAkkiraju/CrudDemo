@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {HttpModule} from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
 
 import { AppComponent } from './app.component';
 import { PostsviewComponent } from './postsview/postsview.component';
@@ -11,6 +12,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PostscreateComponent } from './postscreate/postscreate.component';
 import { PostsupdateComponent } from './postsupdate/postsupdate.component';
 import { PostService } from './services/post.service';
+import { MultiselectDropdownComponent } from './component/multiselect-dropdown/multiselect-dropdown.component';
 
 
 const routes = [
@@ -28,10 +30,11 @@ const routes = [
     PostsviewComponent,
     PostscreateComponent,
     PageNotFoundComponent,
-    PostsupdateComponent
+    PostsupdateComponent,
+    MultiselectDropdownComponent
   ],
   imports: [
-    BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(routes),
+    BrowserModule, FormsModule, HttpModule,AngularMultiSelectModule, RouterModule.forRoot(routes),
     NgbModule.forRoot()
 
   ],

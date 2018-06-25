@@ -5,11 +5,15 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class PostService {
   
-  private url='http://localhost:8080/posts';
+  private url='http://192.168.1.4:8080/posts';
+  private caturl='http://192.168.1.4:8080/categories';
   constructor(private http:  Http) { }
 
   getPost() : Observable<any> {
     return this.http.get(this.url);
+  }
+  getCategories():Observable<any>{
+    return this.http.get(this.caturl);
   }
 
   createPost(post) : Observable<any>{

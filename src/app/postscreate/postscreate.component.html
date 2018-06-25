@@ -48,13 +48,22 @@
           </div>
         </div>
         
-      <div>
+   <!--   <div>
           <label>Category<span class="required">*</span></label>
           <span class="info">*Please enter categories seperated by comma.</span>
             <div>
               <input type="text" class="form-control" name="category" required ngModel #category="ngModel">
             </div>
-        </div>
+        </div>-->
+        <div>
+            <label>Category<span class="required">*</span></label>
+        <angular2-multiselect class="form-control" name="drop-down" [data]="dropdownList" [(ngModel)]="selectedItems" 
+    [settings]="dropdownSettings" 
+    (onSelect)="onItemSelect($event)" 
+    (onDeSelect)="OnItemDeSelect($event)"
+    (onSelectAll)="onSelectAll($event)"
+    (onDeSelectAll)="onDeSelectAll($event)"></angular2-multiselect>
+    </div>
          <br/><br/>
         <input type="submit" value="Create Post" class="btn btn-primary" [disabled]="postForm.invalid" (click)="createPost(postForm)">
         <input type="reset" class="btn btn-primary">
