@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {HttpModule} from '@angular/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AngularMultiSelectModule } from 'angular2-multiselect-dropdown/angular2-multiselect-dropdown';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 import { AppComponent } from './app.component';
 import { PostsviewComponent } from './postsview/postsview.component';
@@ -13,6 +14,9 @@ import { PostscreateComponent } from './postscreate/postscreate.component';
 import { PostsupdateComponent } from './postsupdate/postsupdate.component';
 import { PostService } from './services/post.service';
 import { MultiselectDropdownComponent } from './component/multiselect-dropdown/multiselect-dropdown.component';
+import { PaginationControlsDirective } from './pagination-controls.directive';
+import { TitleSearchPipe } from './title-search.pipe';
+import { DateFilterPipe } from './date-filter.pipe';
 
 
 const routes = [
@@ -31,10 +35,13 @@ const routes = [
     PostscreateComponent,
     PageNotFoundComponent,
     PostsupdateComponent,
-    MultiselectDropdownComponent
+    MultiselectDropdownComponent,
+    PaginationControlsDirective,
+    TitleSearchPipe,
+    DateFilterPipe
   ],
   imports: [
-    BrowserModule, FormsModule, HttpModule,AngularMultiSelectModule, RouterModule.forRoot(routes),
+    BrowserModule, FormsModule, HttpModule,AngularMultiSelectModule,NgxPaginationModule, RouterModule.forRoot(routes),
     NgbModule.forRoot()
 
   ],
